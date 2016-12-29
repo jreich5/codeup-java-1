@@ -230,6 +230,55 @@ public class Main {
 
         // Pig Latin Program
 
+        String continueGame = "y";
+
+        while (continueGame.equals("y")) {
+
+            int lowestVowelIndex = 10;
+            String translatedInput = null;
+            char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+
+            // take string input from user
+            String userInput;
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter a word to translate to Pig Latin: ");
+            userInput = sc.next().toLowerCase();
+
+            // retrieves the index of the first vowel
+            for (int i = 0; i < vowels.length; i++) {
+                int currentVowelIndex = userInput.indexOf(vowels[i]);
+                if (currentVowelIndex > -1 && currentVowelIndex < lowestVowelIndex) {
+                    lowestVowelIndex = currentVowelIndex;
+                }
+            }
+
+            // store certain value of translated word based on lowestVowelIndex position
+            if (lowestVowelIndex > 0) {
+                translatedInput = userInput.substring(lowestVowelIndex, userInput.length()) + userInput.substring(0, lowestVowelIndex) + "ay";
+            } else {
+                translatedInput = userInput + "way";
+            }
+
+            // print output
+            System.out.println(translatedInput);
+
+            System.out.print("Do you want to enter another word (y/n)? ");
+            continueGame = sc.next().toLowerCase();
+
+        }
+        System.out.println("Loop is ended.");
+        System.out.print(continueGame);
+
+
+        // for each whitespace occurrence
+        // lop off a word by whitespace
+        // for the word
+        // transform the word
+            // check the index of each vowel
+            // for the vowel with the lowest index number, if not 0, return a new string with the characters up to that vowel char index moved to the end of the string
+                // else if the vowel index is 0, return a new string word with "way" concatenated to the end
+        //
+
 
 
     }
