@@ -230,6 +230,7 @@ public class Main {
 
         // Pig Latin Program
 
+        /*
         String continueApp = "y";
 
         while (continueApp.equals("y")) {
@@ -286,7 +287,106 @@ public class Main {
                 // else if the vowel index is 0, return a new string word with "way" concatenated to the end
         //
 
+        */
+
+        // 5.5 Methods
+
+
+        // Factorial exercise
+        /*
+        String continueProgram = "y";
+
+        while (continueProgram.equals("y") || continueProgram.equals("Y")) {
+
+            int userInput;
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter a number to from 1 to 20: ");
+            userInput = sc.nextInt();
+
+            if (userInput > 0 && userInput < 21) {
+                System.out.println(calculateFactorial(userInput));
+            } else {
+                System.out.println("Input out of range");
+            }
+
+            System.out.print("Do you wish to enter another number (y/n)? ");
+            continueProgram = sc.next();
+
+        }
+
+        */
+
+        int sides;
+        String answer;
+
+        System.out.println("Welcome to the dice roller!");
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("How many sided dice should be rolled? ");
+        sides = sc.nextInt();
+
+        System.out.println("Do you wish to roll the pair of dice (y/n)? ");
+        answer = sc.next();
+
+        if (answer.equals("Y") || answer.equals("y")) {
+            int dice1 = rollDice(sides);
+            int dice2 = rollDice(sides);
+            System.out.println("You rolled a " + dice1 + " and a " + dice2);
+        }
+
+
 
 
     }
+    /*
+    public static double addNumbers(double o1, double o2) {
+        return o1 + o2;
+    }
+
+    public static double subtractNumbers(double o1, double o2) {
+        return o1 - o2;
+    }
+
+    public static double multiplyNumbers(double o1, double o2) {
+        return o1 * o2;
+    }
+
+    public static double divideNumbers(double o1, double o2) {
+        return o1 / o2;
+    }
+
+    public static double modNumbers(double o1, double o2) {
+        return o1 % o2;
+    }
+
+
+    public static long calculateFactorial(int o1) {
+        long result = 1;
+        for (int i = 1; i <= o1 ; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+
+    // Recursive Solution
+    public static long calculateFactorial(int o1) {
+        long result = 1;
+        if (o1 == 1) {
+            return result;
+        } else {
+            return o1 * calculateFactorial(o1 -1);
+        }
+    }
+
+    */
+
+
+
+    public static int rollDice(int sidesOfDice) {
+        return (int)(Math.random() * sidesOfDice - 1) + 1;
+    }
+
+
+
 }
