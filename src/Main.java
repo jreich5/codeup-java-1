@@ -13,7 +13,7 @@ public class Main {
         */
 
         // 5.6 Error and Exceptions
-        //ValidatorTestApp.runTests();
+        ValidatorTestApp.runTests();
 
     }
 
