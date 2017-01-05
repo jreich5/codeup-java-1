@@ -316,6 +316,8 @@ public class Main {
 
         */
 
+        // Dice Exercise
+        /*
         int sides;
         String answer;
 
@@ -333,11 +335,50 @@ public class Main {
             int dice2 = rollDice(sides);
             System.out.println("You rolled a " + dice1 + " and a " + dice2);
         }
+        */
 
+        // 5.6 Error and Exceptions
+
+
+
+        /*
+        String continueProgram = "y";
+        int studentQuery;
+
+        System.out.println("Welcome to the Student Database.\n");
+        Scanner sc = new Scanner(System.in);
+
+        while (continueProgram.equals("y") || continueProgram.equals("Y")) {
+
+            try {
+                System.out.print("Please enter a student ID for info (1 through 5): ");
+                studentQuery = sc.nextInt();
+                String output = getStudentInfo(studentQuery);
+                System.out.println(output);
+            } catch (IndexOutOfBoundsException e) {
+                sc.nextLine();
+                System.out.println("Number entered was out of range.");
+            } catch (Exception e) {
+                sc.next();
+                System.out.println("Invalid input entered. Input must be an integer.");
+            }
+
+            System.out.print("Would you like to look up another student (y/n): ");
+            continueProgram = sc.next();
+        }
+
+        */
+
+
+        // ValidatorTestApp.runTests();
+
+        GuessingGame gg = new GuessingGame(1, 100);
+        gg.runGame();
 
 
 
     }
+
     /*
     public static double addNumbers(double o1, double o2) {
         return o1 + o2;
@@ -379,13 +420,27 @@ public class Main {
         }
     }
 
-    */
-
-
-
     public static int rollDice(int sidesOfDice) {
         return (int)(Math.random() * sidesOfDice - 1) + 1;
     }
+
+    */
+
+
+    // 5.6
+
+    /*
+    public static String getStudentInfo(int id) {
+        String[] studentNames = {"John", "Justin", "Pam", "Ron", "George"};
+        int[] studentAges = {25, 31, 29, 18, 28};
+        String[] studentDOB = {"March 12", "August 12", "May 4", "April 5", "June 2"};
+        String query = "\n" + studentNames[id -1] + " is " + studentAges[id -1] + " and was born on " + studentDOB[id -1] + ".\n";
+        return query;
+
+    }
+
+    */
+
 
 
 
