@@ -1,4 +1,5 @@
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.jar.Pack200;
 
@@ -52,20 +53,24 @@ public class GuessingGame {
     protected void requestGuess() {
         Scanner sc = new Scanner(System.in);
 
-//        try {
-//            System.out.println("Please guess a number between " + this.min + " and " + this.max);
-//            this.playerGuess = sc.nextInt();
-//
-//        } catch (InputMismatchException e) {
-//            System.out.println("Invalid input. Please enter a valid integer.");
-//        } catch () {
-//
-//        }
-
         System.out.println("Please guess a number between " + this.min + " and " + this.max);
-        this.playerGuess = sc.nextInt();
-
-        this.numberOfGuesses -= 1;
+        try {
+            this.playerGuess = sc.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a valid integer.");
+            requestGuess();
+            this.numberOfGuesses += 1;
+        }
+        try {
+            if (this.playerGuess > this.max || this.playerGuess < this.min) {
+                throw new Exception("Out of range");
+            } else {
+                this.numberOfGuesses -= 1;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            requestGuess();
+        }
     }
 
     protected void setComputerNumber() {
@@ -86,7 +91,10 @@ public class GuessingGame {
         this.numberOfGuesses = guesses;
     }
 
-
+    public static void main(String[] args) {
+        GuessingGame gg = new GuessingGame(1, 10);
+        gg.runGame();
+    }
 
 }
 
