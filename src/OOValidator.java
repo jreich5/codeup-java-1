@@ -15,7 +15,7 @@ public class OOValidator {
             this.sc = sc;
     }
     public int getInt(String prompt) {
-        System.out.println(prompt);
+        System.out.print(prompt);
         int result;
         try {
             if (sc.hasNextInt()) {
@@ -33,8 +33,8 @@ public class OOValidator {
     }
 
     public int getIntWithinRange(String prompt, int min, int max) {
-        System.out.println(prompt);
-        int result = getInt("Please enter a valid integer");
+        System.out.print(prompt);
+        int result = getInt("Please enter a valid integer: ");
         try {
             if (result > max) {
                 throw new Exception("Number too large.");
@@ -51,7 +51,7 @@ public class OOValidator {
     }
 
     public double getDouble(String prompt) {
-        System.out.println(prompt);
+        System.out.print(prompt);
         double result;
         try {
             if (sc.hasNextDouble()) {
@@ -68,8 +68,8 @@ public class OOValidator {
     }
 
     public double getDoubleWithinRange(String prompt, double min, double max) {
-        System.out.println(prompt);
-        double result = getDouble("Please enter a valid double");
+        System.out.print(prompt);
+        double result = getDouble("Please enter a valid double: ");
         try {
             if (result > max) {
                 throw new Exception("Double too large.");

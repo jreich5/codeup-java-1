@@ -11,7 +11,7 @@ public class MyValidator extends OOValidator {
     }
 
     public String getRequiredString(String prompt) {
-        System.out.println(prompt);
+        System.out.print(prompt);
         String result;
         try {
             if (sc.hasNext()) {
@@ -28,11 +28,10 @@ public class MyValidator extends OOValidator {
     }
 
     public String getChoiceString(String prompt, String s1, String s2) {
-        System.out.println(prompt);
-        String result = getRequiredString("Please enter a valid string.");
+        String result = getRequiredString(prompt);
 
         try {
-            if (result.equals(s1) || result.equals(s2)) {
+            if (result.equalsIgnoreCase(s1) || result.equalsIgnoreCase(s2)) {
                 return result;
             } else {
                 throw new Exception("Choice not valid");
@@ -40,6 +39,16 @@ public class MyValidator extends OOValidator {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return getChoiceString(prompt, s1, s2);
+        }
+    }
+
+    public boolean yesNo(String prompt) {
+        sc.nextLine();
+        String result = getChoiceString(prompt, "y", "n");
+        if (result.equals("y")) {
+            return true;
+        } else {
+            return false;
         }
     }
 
