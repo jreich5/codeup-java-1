@@ -27,6 +27,23 @@ public class MyValidator extends OOValidator {
         }
     }
 
+    public String getRequiredStringLine(String prompt) {
+        System.out.print(prompt);
+        String result;
+        try {
+            if (sc.hasNext()) {
+                result = sc.nextLine();
+                return result;
+            } else {
+                throw new InputMismatchException("Input error.");
+            }
+        } catch (InputMismatchException e) {
+            sc.nextLine(); // clear user input
+            System.out.println(e.getMessage());
+            return getRequiredString(prompt);
+        }
+    }
+
     public String getChoiceString(String prompt, String s1, String s2) {
         String result = getRequiredString(prompt);
 
