@@ -153,7 +153,6 @@ public class BattingStats {
     }
 
     // MAIN METHOD
-
     public static void main(String[] args) {
         // initialize application object
         BattingStats batStat = new BattingStats();
