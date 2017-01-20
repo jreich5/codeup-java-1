@@ -34,7 +34,7 @@ public class OOValidator {
 
     public int getIntWithinRange(String prompt, int min, int max) {
         System.out.print(prompt);
-        int result = getInt("Please enter a valid integer: ");
+        int result = getInt("Enter a number: ");
         try {
             if (result > max) {
                 throw new Exception("Number too large.");
